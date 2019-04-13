@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: onhandquery-svc
+  labels:
+    app: itemreservation-msa
+spec:
+  #type: NodePort --removed for GCP and Added 'type: LoadBalancer'
+  type: LoadBalancer
+  ports:
+  - port: 8092
+    targetPort: 8092
+    protocol: TCP 
+    #nodePort: 31092 -- removed for GCP and Added protocol:TCP
+  selector:
+    app: itemreservation-msa
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onhandquery-svc
+spec:
+  selector:
+    matchLabels:
+      app: itemreservation-msa
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: itemreservation-msa
+    spec:
+      containers:
+      - name: onhandquery
+        image: docker.io/debanjande/ora-onhandquery-v1
+        #resources:
+        #  requests:
+        #    cpu: 100m
+        #    memory: 100Mi
+        ports:
+        - containerPort: 8092

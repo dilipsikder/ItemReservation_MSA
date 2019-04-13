@@ -1,0 +1,19 @@
+{
+  "name": "OnhandQuery",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "path": "latest",
+    "http": "latest",
+    "request": "latest"
+  },
+  "devDependencies": {
+    "node-gyp": "^3.6.2"
+  }
+}
