@@ -5,11 +5,13 @@ metadata:
   labels:
     app: onhandquery-msa
 spec:
-  type: NodePort
+  #type: NodePort --removed for GCP and Added 'type: LoadBalancer'
+  type: LoadBalancer
   ports:
   - port: 8092
     targetPort: 8092
-    nodePort: 31092
+    Protocol: TCP
+    #nodePort: 31092 -- removed for GCP and Added protocol:TCP
   selector:
     app: onhandquery-msa
 ---
