@@ -10,7 +10,7 @@ spec:
   ports:
   - port: 8092
     targetPort: 8092
-    Protocol: TCP
+    protocol: TCP
     #nodePort: 31092 -- removed for GCP and Added protocol:TCP
   selector:
     app: onhandquery-msa
