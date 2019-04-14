@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     sdoJava:package="oracle.apps.prc.po.editDocument.purchaseRequestService" xmlns:ns0="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     xmlns:sdoJava="commonj.sdo/java" xmlns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+            <name>Purchase Request Requisition Distribution Confirmation Service
+                Data Object Version 1</name>
+            <description>Version 1 of an object, representing the set of requisition
+                distribution attributes that are returned when the purchase
+                request create operation is completed.</description>
+            <oer:attributes>
+                <oer:attribute description="The unique identifier of a requisition line." name="RequisitionLineId"/>
+                <oer:attribute description="The unique identifier of a requisition distribution."
+                     name="RequisitionDistributionId"/>
+                <oer:attribute description="The display number used to identify a requisition distribution."
+                     name="RequisitionDistributionNumber"/>
+                <oer:attribute description="The cloud interface alternate distribution key code for integrating applications to be able to identify the requisition distribution data loaded in the interface table."
+                     name="InterfaceDistributionKey"/>
+                <oer:attribute description="A code indicating the status of the request.  Valid values include SUCCESS, ERROR, FAILURE, or PARTIAL."
+                     name="Status"/>
+                <oer:attribute description="Purchase Request output requisition distribution error information"
+                     name="PurchaseRequestOutputReqDistError"/>
+            </oer:attributes>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:include schemaLocation="PurchaseRequestOutputReqDistError.xsd"/>
+    <xsd:complexType name="PurchaseRequestOutputReqDistInterface">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="RequisitionLineId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="RequisitionDistributionId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="RequisitionDistributionNumber" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="InterfaceDistributionKey" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Status" nillable="true" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="PurchaseRequestOutputReqDistError"
+                 type="ns0:PurchaseRequestOutputReqDistError"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="purchaseRequestOutputReqDistInterface" type="PurchaseRequestOutputReqDistInterface"/>
+</xsd:schema>

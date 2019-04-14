@@ -1,0 +1,11 @@
+{
+  "realm": "ItemReservation",
+  "auth-server-url": "http://184.172.247.24:31080/auth",
+  "ssl-required": "external",
+  "resource": "account",
+  "credentials": {
+    "secret": "29303fea-7bfb-4539-b7b8-90a40e882f43"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

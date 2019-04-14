@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     sdoJava:package="oracle.apps.prc.po.editDocument.purchaseRequestService" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+     xmlns:sdoJava="commonj.sdo/java" xmlns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+            <name>Purchase Request Create Requisition Configuration Details Service
+                Data Object Version 1</name>
+            <description>Version 1 of an object, representing the set of requisition configuration details
+                attributes that are being used to initiate the creation of a
+                purchase request.</description>
+            <oer:attributes>
+                <oer:attribute description="The cloud interface alternate interface key code for integrating applications to be able to identify  the requisition line configuration data loaded in the interface table."
+                     name="InterfaceConfigurationComponentKey"/>
+                <oer:attribute description="The buying organization&apos;s identification number or code for the model associated with the option/option class"
+                     name="BaseModelId"/>
+                <oer:attribute description="The unique identifier of a component." name="ComponentLineId"/>
+                <oer:attribute description="The quantity indicating the number of units needed to complete a single configuration."
+                     name="Quantity"/>
+                <oer:attribute description="A text description capturing details about the component used in the configuration."
+                     name="Description"/>
+                <oer:attribute description="The unique identifier of an item." name="ItemId"/>
+                <oer:attribute description="The identifier of an inventory item version being referenced on an order line."
+                     name="ItemRevision"/>
+                <oer:attribute description="A code indicating the item type.  Valid values include Configured item, option class, or option."
+                     name="ItemType"/>
+                <oer:attribute description="The display name of a supplier&apos;s identification number or code for the goods ordered on your order line."
+                     name="SupplierItemNumber"/>
+                <oer:attribute description="A code indicating the division of quantity defined as a standard of measurement or exchange."
+                     name="UnitOfMeasureCode"/>
+                <oer:attribute description="The unique identifier of the parent component line.  If the parent is the base model, this field will be null."
+                     name="ParentComponentLineId"/>
+                <oer:attribute description="The unit price of the component." name="Price"/>
+                <oer:attribute description="Attachments of this category will be copied over from the source object to the requisition."
+                     name="AttachmentCategory"/>
+                <oer:attribute description="A code indicating the object from which the attachments should be copied."
+                     name="AttachmentEntityName"/>
+                <oer:attribute description="The unique identifier of an object from which attachments should be copied."
+                     name="AttachmentPrimaryKey1"/>
+                <oer:attribute description="The unique identifier of an object from which attachments should be copied."
+                     name="AttachmentPrimaryKey2"/>
+                <oer:attribute description="The unique identifier of an object from which attachments should be copied."
+                     name="AttachmentPrimaryKey3"/>
+                <oer:attribute description="The unique identifier of an object from which attachments should be copied."
+                     name="AttachmentPrimaryKey4"/>
+                <oer:attribute description="The unique identifier of an object from which attachments should be copied."
+                     name="AttachmentPrimaryKey5"/>
+                <oer:attribute description="The display name of an item representing anything you make, purchase, or sell, including components, subassemblies, finished products, or supplies."
+                     name="ItemNumber"/>
+                <oer:attribute description="The display name of a model from which an ATO configuration was created."
+                     name="BaseModelNumber"/>
+                <oer:attribute description="The display number used to identify a component." name="ComponentLineNumber"/>
+                <oer:attribute description="A division of quantity defined as a standard of measurement or exchange."
+                     name="UnitOfMeasure"/>
+            </oer:attributes>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:complexType name="PurchaseRequestInputReqConfigInterface">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>ReqConfigCompInterfaceId</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="InterfaceConfigurationComponentKey" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BaseModelId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="ComponentLineId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="Quantity" nillable="true" type="ns0:MeasureType"/>
+            <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ItemId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="ItemRevision" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ItemType" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SupplierItemNumber" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="UnitOfMeasureCode" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ParentComponentLineId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="Price" nillable="true" type="ns0:AmountType"/>
+            <xsd:element minOccurs="0" name="AttachmentCategory" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentEntityName" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentPrimaryKey1" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentPrimaryKey2" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentPrimaryKey3" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentPrimaryKey4" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AttachmentPrimaryKey5" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ItemNumber" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BaseModelNumber" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ComponentLineNumber" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="UnitOfMeasure" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="purchaseRequestInputReqConfigInterface" type="PurchaseRequestInputReqConfigInterface"/>
+</xsd:schema>

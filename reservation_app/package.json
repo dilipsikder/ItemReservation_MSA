@@ -1,0 +1,20 @@
+{
+  "name": "ManageReservation",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "swig": "latest",
+    "url": "latest",
+    "fluent-logger": "latest",
+    "keycloak-connect": "latest",
+    "express-session": "latest"
+  },
+  "devDependencies": {
+    "node-gyp": "^3.6.2"
+  }
+}

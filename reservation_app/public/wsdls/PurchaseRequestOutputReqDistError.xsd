@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     sdoJava:package="oracle.apps.prc.po.editDocument.purchaseRequestService" xmlns:sdoJava="commonj.sdo/java"
+     xmlns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+            <name>Purchase Request Requisition Distribution Errors Confirmation
+                Service Data Object Version 1</name>
+            <description>Version 1 of an object, representing the errors for each
+                requisition distribution that are returned when the purchase
+                request create operation encounters an error.</description>
+            <oer:attributes>
+                <oer:attribute description="A text description capturing the error that occurred during processing."
+                     name="ErrorMessageText"/>
+                <oer:attribute description="A code indicating the error that occurred during processing."
+                     name="ErrorMessageCode"/>
+            </oer:attributes>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:complexType name="PurchaseRequestOutputReqDistError">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>ReqImportErrorId</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="ErrorMessageText" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ErrorMessageCode" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="purchaseRequestOutputReqDistError" type="PurchaseRequestOutputReqDistError"/>
+</xsd:schema>

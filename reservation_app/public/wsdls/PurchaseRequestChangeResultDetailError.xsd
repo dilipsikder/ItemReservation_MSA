@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     sdoJava:package="oracle.apps.prc.po.editDocument.purchaseRequestService" xmlns:sdoJava="commonj.sdo/java"
+     xmlns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+            <name>Purchase Request Change Document Errors Confirmation Service
+                Data Object Version 1</name>
+            <description>Version 1 of an object, representing the errors for each
+                requisition or purchase order that are returned when the
+                purchase request change operation is completed.</description>
+            <oer:category name="lba">
+                <value>PrcTop-Procurement</value>
+                <value>PrcTop-Procurement : PrcPoTop-Purchasing</value>
+                <value>PrcTop-Procurement : PrcPoTop-Purchasing :
+                    PrcPoEditDocument-Edit Purchasing Document</value>
+            </oer:category>
+            <oer:category name="ces">
+                <value>Fusion DOO to AU Order Entry/Fulfillment</value>
+            </oer:category>
+            <oer:attributes>
+                <oer:attribute description="A code indicating the error that occurred during processing."
+                     name="RequestStatusErrorCode"/>
+                <oer:attribute description="A text description capturing the error that occurred during processing."
+                     name="RequestStatusErrorText"/>
+                <oer:attribute description="A text field indicating the attribute that received the error during processing."
+                     name="RequestStatusErrorAttribute"/>
+            </oer:attributes>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:complexType name="PurchaseRequestChangeResultDetailError">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>ChangeRequestDetailErrorId</attribute>
+                    <attribute>ChangeRequestDetailId</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="RequestStatusErrorCode" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="RequestStatusErrorText" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="RequestStatusErrorAttribute" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="purchaseRequestChangeResultDetailError" type="PurchaseRequestChangeResultDetailError"/>
+</xsd:schema>

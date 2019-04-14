@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %} {% include 'head.html' %} {% endblock %}
+    <script>{% block common-js %} {% include "../public/javascripts/common.js" %} {% endblock %}</script>
+  </head>
+  <body>
+    {% block top %} {% include 'top.html' %} {% endblock %}
+    {% block line_item %}
+    {% endblock %}
+
+    {% block delivery_details %}
+    {% endblock %}
+
+    {% block footer %} {% include 'footer.html' %} {% endblock %}
+
+  </body>
+</html>

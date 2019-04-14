@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     sdoJava:package="oracle.apps.prc.po.editDocument.purchaseRequestService" xmlns:ns0="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     xmlns:ns2="http://xmlns.oracle.com/adf/svc/types/" xmlns:sdoJava="commonj.sdo/java" xmlns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:annotation>
+        <xsd:documentation xmlns:oer="http://xmlns.oracle.com/oer">
+            <name>Purchase Request Requisition Line Confirmation Service Data
+                Object Version 1</name>
+            <description>Version 1 of an object, representing the set of requisition line
+                attributes that are returned when the purchase request create
+                operation is completed.</description>
+            <oer:attributes>
+                <oer:attribute description="The unique identifier of a requisition." name="RequisitionHeaderId"/>
+                <oer:attribute description="The unique identifier of a requisition line." name="RequisitionLineId"/>
+                <oer:attribute description="The display number used to identify a requisition line."
+                     name="RequisitionLine"/>
+                <oer:attribute description="The cloud interface alternate line key code for integrating applications to be able to identify the requisition line data loaded in the interface table."
+                     name="InterfaceLineKey"/>
+                <oer:attribute description="A code indicating the status of the request.  Valid values include SUCCESS, ERROR, FAILURE, or PARTIAL."
+                     name="Status"/>
+                <oer:attribute description="The unique identifier of a buyer specified on the document."
+                     name="BuyerId"/>
+                <oer:attribute description="The display name of a buyer specified on the document."
+                     name="BuyerName"/>
+                <oer:attribute description="The email address for a buyer specified on the document."
+                     name="BuyerEmail"/>
+                <oer:attribute description="The quantity converted in the secondary unit of measure of a dual UOM controlled item."
+                     name="Quantity"/>
+                <oer:attribute description="A code indicating the division of quantity defined as a standard of measurement or exchange"
+                     name="UnitOfMeasureCode"/>
+                <oer:attribute description="Purchase Request output requisition distribution information"
+                     name="PurchaseRequestOutputReqDistInterface"/>
+                <oer:attribute description="Purchase Request output requisition line  error information"
+                     name="PurchaseRequestOutputReqLineError"/>
+                <oer:attribute description="Purchase Request output requisition configuration information"
+                     name="PurchaseRequestOutputReqConfigInterface"/>
+            </oer:attributes>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:include schemaLocation="PurchaseRequestOutputReqLineError.xsd"/>
+    <xsd:include schemaLocation="PurchaseRequestOutputReqDistInterface.xsd"/>
+    <xsd:include schemaLocation="PurchaseRequestOutputReqConfigInterface.xsd"/>
+    <xsd:complexType name="PurchaseRequestOutputReqLineInterface">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="RequisitionHeaderId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="RequisitionLineId" nillable="true" type="xsd:long"/>
+            <xsd:element minOccurs="0" name="RequisitionLine" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="InterfaceLineKey" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Status" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BuyerId" nillable="true" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" name="BuyerName" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="BuyerEmail" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Quantity" nillable="true" type="ns2:MeasureType"/>
+            <xsd:element minOccurs="0" name="UnitOfMeasureCode" nillable="true" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="PurchaseRequestOutputReqLineError"
+                 type="ns0:PurchaseRequestOutputReqLineError"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="PurchaseRequestOutputReqDistInterface"
+                 type="PurchaseRequestOutputReqDistInterface"/>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="PurchaseRequestOutputReqConfigInterface"
+                 type="PurchaseRequestOutputReqConfigInterface"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="purchaseRequestOutputReqLineInterface" type="PurchaseRequestOutputReqLineInterface"/>
+</xsd:schema>

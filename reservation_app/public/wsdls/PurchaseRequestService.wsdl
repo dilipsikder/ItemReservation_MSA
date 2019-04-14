@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PurchaseRequestService" targetNamespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/" xmlns:orafault="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0" xmlns:tns="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:types="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/types/">
+    <plnk:partnerLinkType name="PurchaseRequestService">
+        <plnk:role name="PurchaseRequestServiceProvider">
+            <plnk:portType name="tns:PurchaseRequestService"/>
+        </plnk:role>
+        <plnk:role name="PurchaseRequestServiceRequestor">
+            <plnk:portType name="tns:PurchaseRequestServiceResponse"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/oracleas/schema/oracle-fault-11_0" schemaLocation="oracle-webservices-async-fault-11_0.xsd"/>
+            <import namespace="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/types/" schemaLocation="PurchaseRequestService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="PurchaseRequestService_createRequisition">
+        <wsdl:part name="parameters" element="types:createRequisition"/>
+    </wsdl:message>
+    <wsdl:message name="PurchaseRequestService_createRequisitionResponse">
+        <wsdl:part name="parameters" element="types:createRequisitionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="PurchaseRequestService_onFault">
+        <wsdl:part name="parameters" element="orafault:Fault"/>
+    </wsdl:message>
+    <wsdl:portType name="PurchaseRequestService">
+        <wsdl:operation name="createRequisition">
+            <wsdl:input message="tns:PurchaseRequestService_createRequisition"/>
+            <wsdl:output message="tns:PurchaseRequestService_createRequisitionResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PurchaseRequestServiceSoapHttp" type="tns:PurchaseRequestService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createRequisition">
+            <soap:operation soapAction="http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseRequestService/createRequisition"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PurchaseRequestService">
+        <wsdl:port name="PurchaseRequestServiceSoapHttpPort" binding="tns:PurchaseRequestServiceSoapHttp">
+            <soap:address location="www.example.org"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

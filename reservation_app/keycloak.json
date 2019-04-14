@@ -1,0 +1,11 @@
+{
+  "realm": "demo",
+  "auth-server-url": "http://159.122.183.138:31080/auth",
+  "ssl-required": "external",
+  "resource": "account",
+  "credentials": {
+    "secret": "a9fa6cf7-71c7-4515-96ac-dfb2c281ccc8"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
