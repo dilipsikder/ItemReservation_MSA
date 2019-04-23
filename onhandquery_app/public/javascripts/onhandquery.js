@@ -11,7 +11,7 @@ router.use(function (request, response, next) {
   response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   response.setHeader('Access-Control-Allow-Credentials', true);
   next();
-});
+ });
 
 function find_onhand_direct(res,itemNum,OrgCode){
 	var uname = 'SCM IMPU', pwd = 'Oracle123';
