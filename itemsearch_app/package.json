@@ -1,0 +1,20 @@
+{
+  "name": "QuickItemSearch",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "path": "latest",
+    "fs": "latest",
+    "http": "latest",
+    "https": "latest",
+    "request": "latest",
+    "fluent-logger": "latest",
+    "keycloak-connect": "latest",
+    "express-session": "latest"
+  }
+}

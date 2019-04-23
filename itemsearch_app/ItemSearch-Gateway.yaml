@@ -1,0 +1,33 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: itemreservation-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: itemreservation-vs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - itemreservation-gateway
+  http:
+  - match:
+    - uri:
+        exact: /item_num/find/IBM1
+    route:
+    - destination:
+        host: itemsearch-svc
+        port:
+          number: 8091

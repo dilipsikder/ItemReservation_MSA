@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itemsearch-msa
+  labels:
+    app: itemsearch-msa
+spec:
+  #type: NodePort --removed for GCP and Added 'type: LoadBalancer'
+  type: LoadBalancer
+  ports:
+  - port: 8091
+    targetPort: 8091
+    #nodePort: 31091 -- removed for GCP
+    name: http
+    protocol: TCP  
+  selector:
+    app: itemsearch-msa
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itemsearch-msa
+spec:
+  selector:
+    matchLabels:
+      app: itemsearch-msa
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: itemsearch-msa
+        version: v1
+    spec:
+      containers:
+      - name: itemsearch
+        image: docker.io/debanjande/ora-itemsearch-v1
+        ports:
+        - containerPort: 8091

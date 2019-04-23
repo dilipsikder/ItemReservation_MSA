@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itemsearch-svc
+  labels:
+    app: itemreservation-msa
+spec:
+  ports:
+  - port: 8091
+    name: http
+  selector:
+    app: itemreservation-msa
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: itemsearch-svc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: itemreservation-msa
+        version: v1
+    spec:
+      containers:
+      - name: itemsearch
+        image: docker.io/debanjande/ora-itemsearch-v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8091
